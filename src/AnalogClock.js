@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import DigitalClock from "./DigitalClock";
-
 const AnalogClock = ({ userTimeUpdate }) => {
 
   //analog clocks hours minutes and seconds
