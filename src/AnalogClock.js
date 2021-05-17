@@ -9,23 +9,27 @@ const AnalogClock = ({ userTimeUpdate }) => {
   const [analogMinute, setAnalogMinute] = useState('');
   const [analogSeconds, setAnalogSeconds] = useState('');
 
+  // user input values in state
+  const [cusMin, setCusMin] = useState(null);
+  const [cusHour, setCusHour] = useState(null);
 
   const timeData = userContext(TimeContext);
 
   const secondsStyle = {
-
+    tranform = `rotate(${analogSeconds * 6}deg)`,
   };
 
   const minutesStyle = {
-
+    tranform = `rotate(${(timeData.globalMinute !== null && timeData.globalMinute * 6) || cusMin ||
+    (userTimeUpdate && userTimeUpdate.userSelectedMinute * 6 || analogMinute * 6)
+    }deg)`,
   };
+
   const hoursStyle = {
 
   };
 
-  // user input values in state
-  const [cusMin, setCusMin] = useState(null);
-  const [cusHour, setCusHour] = useState(null);
+
 
 
 
