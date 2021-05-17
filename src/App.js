@@ -1,11 +1,12 @@
-import { useState } from 'react';
 import './App.scss';
+import AnalogClock from "./AnalogClock";
+import { useState } from 'react';
 
 function App() {
-
-  const [hour, setHour] = useState("");
-  const [minute, setMinute] = useState("");
-  const [TimeUpdate, setTimeUpdate] = useState({
+  //hours and minute for user input
+  const [userInputHour, setUserInputHour] = useState("");
+  const [userInputMinute, setUserInputMinute] = useState("");
+  const [userTimeUpdate, setUserTimeUpdate] = useState({
     userSelectedHour: null,
     userSelectedMinute: null,
   });
@@ -14,11 +15,20 @@ function App() {
   const handleSubmit = (event) => {
     //prevent browser from refreshing
     event.preventDefault();
+    // updating hour and minute state inside setTimeUpdate
+    setUserTimeUpdate({
+      userSelectedHour: userInputHour,
+      userSelectedMinute: userInputMinute,
+    })
   }
 
   // take Hour input from user and update a Hour state
   const handleUserHour = (event) => {
-    setHour(event.target.value);
+    setUserInputHour(event.target.value);
+  }
+  // take Minute input from user and update a Minute state
+  const handleUserMinute = (event) => {
+    setUserInputMinute(event.target.value);
   }
 
   return (
@@ -32,7 +42,7 @@ function App() {
           <input type="number"
             id="hour-box"
             name="hour-box"
-            value={hour}
+            value={userInputHour}
             onChange={handleUserHour}
             placeholder="Hour"
             min="1"
@@ -47,14 +57,18 @@ function App() {
           <input type="number"
             id="minute-box"
             name="minute-box"
-            value={minute}
+            value={userInputMinute}
             onChange={handleUserMinute}
+            placeholder="Minute"
             min="1"
             max="59"
+            required
           />
         </fieldset>
         <button type="submit">Adjust Time</button>
       </form>
+      {/* Analog component */}
+      <AnalogClock userTimeUpdate={userTimeUpdate} />
     </div>
   );
 }
