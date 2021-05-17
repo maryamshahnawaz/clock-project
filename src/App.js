@@ -4,11 +4,11 @@ import { useState } from 'react';
 
 function App() {
   //hours and minute for user input
-  const [userInputHour, setUserInputHour] = useState("");
-  const [userInputMinute, setUserInputMinute] = useState("");
-  const [userTimeUpdate, setUserTimeUpdate] = useState({
-    userSelectedHour: null,
-    userSelectedMinute: null,
+  const [hour, setHour] = useState("");
+  const [minute, setMinute] = useState("");
+  const [timeUpdate, setTimeUpdate] = useState({
+    hr: null,
+    min: null,
   });
 
   // handleSubmit function declared
@@ -16,19 +16,19 @@ function App() {
     //prevent browser from refreshing
     event.preventDefault();
     // updating hour and minute state inside setTimeUpdate
-    setUserTimeUpdate({
-      userSelectedHour: userInputHour,
-      userSelectedMinute: userInputMinute,
-    })
+    setTimeUpdate({
+      hr: hour,
+      min: minute,
+    });
   }
 
   // take Hour input from user and update a Hour state
   const handleUserHour = (event) => {
-    setUserInputHour(event.target.value);
+    setHour(event.target.value);
   }
   // take Minute input from user and update a Minute state
   const handleUserMinute = (event) => {
-    setUserInputMinute(event.target.value);
+    setMinute(event.target.value);
   }
 
   return (
@@ -68,7 +68,9 @@ function App() {
         <button type="submit">Adjust Time</button>
       </form>
       {/* Analog component */}
-      <AnalogClock userTimeUpdate={userTimeUpdate} format={12} />
+      <div className="flex-container">
+        <AnalogClock timeUpdate={timeUpdate} format={12} />
+      </div>
     </div>
   );
 }
