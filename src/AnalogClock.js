@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 import { useState, useEffect } from "react";
-
+import DigitalClock from "./DigitalClock";
 
 const AnalogClock = ({ userTimeUpdate }) => {
 
@@ -15,17 +15,16 @@ const AnalogClock = ({ userTimeUpdate }) => {
   const [cusHour, setCusHour] = useState(null);
 
   const customMinute = (prevMinute) => {
-    (prevMinute === null && Number(userTimeUpdate && userTimeUpdate.userSelectedMinute) + 1) || prevMinute + 1;
+    return (prevMinute === null && Number(userTimeUpdate && userTimeUpdate.userSelectedMinute) + 1) || prevMinute + 1;
   }
 
   const customHour = (prevHour) => {
-    (prevHour === null && Number(userTimeUpdate && userTimeUpdate.userSelectedHour) + 1);
+    return (prevHour === null && Number(userTimeUpdate && userTimeUpdate.userSelectedHour) + 1);
   }
   //formatTime function if time less then 10 it will add 0 before it
 
-  const formatTime = (time) => {
-    return time < 10 ? `0${time}` : time;
-  };
+  const formatTime = time => time < 10 ? `0 ${time}` : time;
+
 
   // Time function
   const handleTime = () => {
@@ -64,7 +63,7 @@ const AnalogClock = ({ userTimeUpdate }) => {
   //set interval for analog
   let clockInterval;
   useEffect(() => {
-    clockInterval = setInterval(handleDate, 1000);
+    clockInterval = setInterval(handleTime, 1000);
   }, [clockInterval]);
 
   // clear interval
@@ -76,9 +75,31 @@ const AnalogClock = ({ userTimeUpdate }) => {
 
 
   return (
-    <div>
+    <>
+      <div className="clocks-container">
+        <div className="analog-clock">
+          <div className="dial seconds" style={secondsStyle}></div>
+          <div className="dial minutes" style={secondsStyle}></div>
+          <div className="dial hours" style={secondsStyle}></div>
+          <span className="number-twelve">12</span>
+          <span className="number-one">1</span>
+          <span className="number-two">2</span>
+          <span className="number-three">3</span>
+          <span className="number-four">4</span>
+          <span className="number-five">5</span>
+          <span className="number-six">6</span>
+          <span className="number-seven">7</span>
+          <span className="number-eight">8</span>
+          <span className="number-nine">9</span>
+          <span className="number-ten">10</span>
+          <span className="number-eleven">11</span>
+        </div>
+      </div>
+      <div className="digital-clock">
+        <DigitalClock />
+      </ div>
 
-    </div>
+    </>
   )
 }
 
