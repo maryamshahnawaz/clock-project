@@ -1,85 +1,26 @@
 import React from "react";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import DigitalClock from "./DigitalClock";
-import { TimeContext } from './contextUser';
+import { UserContext } from "./context";
 
-const AnalogClock = ({ userTimeUpdate }) => {
+const AnalogClock = ({ timeUpdate, format }) => {
 
   //analog clocks hours minutes and seconds
-  const [analogHour, setAnalogHour] = useState('');
-  const [analogMinute, setAnalogMinute] = useState('');
-  const [analogSeconds, setAnalogSeconds] = useState('');
+  const [hours, setHours] = useState('');
+  const [minutes, setMinutes] = useState('');
+  const [seconds, setSeconds] = useState('');
+
+  const ctx = React.useContext(UserContext);
 
   // user input values in state
   const [cusMin, setCusMin] = useState(null);
   const [cusHour, setCusHour] = useState(null);
-  const timeData = useContext(TimeContext);
-  const secondsStyle = {
-    tranform: `rotate(${analogSeconds * 6}deg)`,
-  };
 
-  const minutesStyle = {
-    tranform: `rotate(${(timeData.globalMinute !== null && timeData.globalMinute * 6) || cusMin ||
-      (userTimeUpdate && userTimeUpdate.userSelectedMinute * 6 || analogMinute * 6)
-      }deg)`,
-  };
-
-  const hoursStyle = {
-    transform: `rotate(${(timeData.globalHour !== null && timeData.globalHour * 30) || cusHour ||
-      (userTimeUpdate && userTimeUpdate.userSelectedHour * 30) || analogHour * 30
-      }deg)`,
-  };
-
-  const customMinute = (prevMinute) => {
-    return (prevMinute === null && Number(userTimeUpdate && userTimeUpdate.userSelectedMinute) + 1) || prevMinute + 1;
-  }
-
-  const customHour = (prevHour) => {
-    return (prevHour === null && Number(userTimeUpdate && userTimeUpdate.userSelectedHour) + 1);
-  }
-  //formatTime function if time less then 10 it will add 0 before it
-
-  const formatTime = time => time < 10 ? `0 ${time}` : time;
-
-
-  // Time function
-  const handleTime = () => {
-    // instantiate date from browser
-    const date = new Date();
-    date.setHours(date.getHours());
-    let dateHours = formatTime(date.getHours());
-    let dateMinutes = formatTime(date.getMinutes());
-    let dateSeconds = formatTime(date.getSeconds());
-
-    //setting analog time state to get time on clock
-    setAnalogHour(dateHours);
-    setAnalogMinute(dateMinutes);
-    setAnalogSeconds(dateSeconds);
-
-    if (userTimeUpdate && userTimeUpdate.userSelectedMinute) {
-      if (cusMin === 59) {
-        setCusMin(0);
-      }
-      if (dateSeconds === 59) {
-        setCusMin(customMinute);
-      } else {
-        setCusMin(previousMin => previousMin);
-      }
-    }
-
-    if (userTimeUpdate && userTimeUpdate.userSelectedHour) {
-      if (cusHour > 12) {
-        setCusHour(customHour);
-      } else {
-        setCusHour(previousMin => previousMin)
-      }
-    }
-  };
 
   //set interval for analog
   let clockInterval;
   useEffect(() => {
-    clockInterval = setInterval(handleTime, 1000);
+    clockInterval = setInterval(handleDate, 1000);
   }, [clockInterval]);
 
   // clear interval
@@ -88,6 +29,87 @@ const AnalogClock = ({ userTimeUpdate }) => {
       clearInterval(clockInterval)
     })
   }, []);
+
+
+
+
+
+
+
+
+
+  const secondsStyle = {
+    tranform: `rotate(${seconds * 6}deg)`,
+  };
+
+  const minutesStyle = {
+    transform: `rotate(${(ctx.cusMins !== null && ctx.cusMins * 6) ||
+      cusMin ||
+      (timeUpdate && timeUpdate.min * 6) ||
+      minutes * 6
+      }deg)`,
+  };
+
+  const hoursStyle = {
+    transform: `rotate(${
+      // eslint-disable-next-line
+      (ctx.cusHours != null && ctx.cusHours * 30) ||
+      cusHour ||
+      (timeUpdate && timeUpdate.hr * 30) ||
+      hours * 30
+      }deg)`,
+  };
+
+  const setCustomMinute = (previousMin) =>
+    (previousMin === null && Number(timeUpdate && timeUpdate.min) + 1) ||
+    previousMin + 1;
+
+  const setCustomHour = (previousHour) =>
+    (previousHour === null && Number(timeUpdate && timeUpdate.hr) + 1) ||
+    previousHour + 1;
+
+
+  // Time function
+  const handleDate = () => {
+    // instantiate date from browser
+    const date = new Date();
+    date.setHours(date.getHours());
+    let hours = formatTime(date.getHours());
+    let minutes = formatTime(date.getMinutes());
+    let seconds = formatTime(date.getSeconds());
+
+    //setting analog time state to get time on clock
+    setHours(hours);
+    setMinutes(minutes);
+    setSeconds(seconds);
+
+    if (timeUpdate && timeUpdate.min) {
+      if (cusMin === 59) {
+        setCusMin(0);
+      }
+
+      if (seconds === 59) {
+        setCusMin(setCustomMinute);
+      } else {
+        setCusMin((previousMin) => previousMin);
+      }
+    }
+
+    if (timeUpdate && timeUpdate.hr) {
+      if (cusHour > 12) {
+        setCusHour(1);
+      } else if (cusMin === 59) {
+        setCusHour(setCustomHour);
+      } else {
+        setCusHour((previousMin) => previousMin);
+      }
+    }
+  };
+  //formatTime function if time less then 10 it will add 0 before it
+
+  const formatTime = (time) => {
+    return time < 10 ? `0${time}` : time;
+  };
 
 
   return (
@@ -138,7 +160,7 @@ const AnalogClock = ({ userTimeUpdate }) => {
           </span>
         </div>
         <div className="digital-clock">
-          <DigitalClock />
+          <DigitalClock timeUpdate={timeUpdate} format={format} />
         </ div>
       </div>
 

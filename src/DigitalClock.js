@@ -3,6 +3,7 @@ import { UserContext } from "./context";
 
 
 const Clock = ({ timeUpdate, format }) => {
+
   const [cusMin, setCusMin] = useState(null);
   const [cusHour, setCusHour] = useState(0);
 
@@ -13,7 +14,6 @@ const Clock = ({ timeUpdate, format }) => {
 
   let formattedHr = format ? hr % format : hr;
   const ctx = React.useContext(UserContext);
-
 
   const setCustomMinute = (previousMin) =>
     (previousMin === null && Number(timeUpdate && timeUpdate.min) + 1) ||
@@ -50,9 +50,6 @@ const Clock = ({ timeUpdate, format }) => {
       }
     }
   }, [sec, min]);
-
-
-
 
   return (
     <div className="digital-clock">
