@@ -1,6 +1,7 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import DigitalClock from "./DigitalClock";
+import { TimeContext } from './contextUser';
 const AnalogClock = ({ userTimeUpdate }) => {
 
   //analog clocks hours minutes and seconds
@@ -9,9 +10,26 @@ const AnalogClock = ({ userTimeUpdate }) => {
   const [analogSeconds, setAnalogSeconds] = useState('');
 
 
+  const timeData = userContext(TimeContext);
+
+  const secondsStyle = {
+
+  };
+
+  const minutesStyle = {
+
+  };
+  const hoursStyle = {
+
+  };
+
   // user input values in state
   const [cusMin, setCusMin] = useState(null);
   const [cusHour, setCusHour] = useState(null);
+
+
+
+
 
   const customMinute = (prevMinute) => {
     return (prevMinute === null && Number(userTimeUpdate && userTimeUpdate.userSelectedMinute) + 1) || prevMinute + 1;
