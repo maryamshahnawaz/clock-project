@@ -68,7 +68,7 @@ function App() {
         <button type="submit">Adjust Time</button>
       </form>
       {/* Analog component */}
-      <AnalogClock userTimeUpdate={userTimeUpdate} />
+      <AnalogClock userTimeUpdate={userTimeUpdate} format={12} />
     </div>
   );
 }

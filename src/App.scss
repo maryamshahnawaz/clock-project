@@ -1,38 +1,188 @@
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    font-family: sans-serif;
   }
+  .clock {
+    width: 150px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    margin: 5px;
+
+    .digital-clocks {
+      padding: 10px;
+      font-size: 30px;
+    }
+    .analog-clocks {
+      width: 100px;
+      height: 100px;
+      border: solid 1px #000;
+      border-radius: 50%;
+      position: relative;
+      background: #fff;
+      .dial {
+        position: absolute;
+        left: 50%;
+        width: 50px;
+        height: 50px;
+        transform-origin: bottom left;
+        &.seconds {
+          border-left:solid 1px green;
+        }
+        &.minutes {
+          border-left:solid 1px #cc0000;
+        }
+        &.hours {
+          width: 35px;
+          height: 35px;
+          top: 15px;
+          border-left:solid 2px #000;
+        }
+      }
+    }
+  }
+  
+
+
+
+
+.hour-hand {
+  width:6px;
+  height:70px;
+  background-color: black;
+  position: absolute;
+  top:50%;
+  left:50%;
+  z-index: 200;
+  transform-origin: bottom;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.minute-hand {
+  width:4px;
+  height:120px;
+  position: absolute;
+  top:50%;
+  left:50%;
+  background-color: grey;
+  transform-origin: bottom;
+}
+.second-hand {
+  width:1px;
+  height:140px;
+  position: absolute;
+  top:50%;
+  left:50%;
+  background-color: rgb(255, 2, 2);
+  transform-origin: bottom;
+}
+
+.number-twelve {
+  position: absolute;
+  top:0%;
+  left:48%;
+  height: "5px";
+  width: "5px";
+}
+
+.number-one {
+  position: absolute;
+  top:9%;
+  right:22%;
+}
+
+.number-two {
+  position: absolute;
+  top:25%;
+  right:10%;
+}
+
+.number-three {
+  position: absolute;
+  top:45%;
+  right:5%;
+}
+
+.number-four {
+  position: absolute;
+  top:65%;
+  right:8%;
+}
+
+.number-five {
+  position: absolute;
+  top:84%;
+  right:24%;
+}
+
+.number-six {
+  position: absolute;
+  top:90%;
+  right:48%;
+  
+}
+
+
+.number-seven {
+  position: absolute;
+  top:83%;
+  left:30%;
+}
+
+.number-eight {
+  position: absolute;
+  top:68%;
+  left:11%;
+}
+
+.number-nine {
+  position: absolute;
+  top:47%;
+  left:7%;
+}
+
+.number-ten {
+  position: absolute;
+  top:25%;
+  left:7%;
+}
+
+.number-eleven {
+  position: absolute;
+  top:9%;
+  left:23%;
+}
+fieldset {
+  border:none;
+}
+form {
+  display:flex;
+}
+
+input {
+  width:50px;
+  padding:5px;
+}
+button {
+  border: none;
+  background-color: transparent;
+
+}
+
+.digital-clock {
+  width:350px;
+  height:150px;
+  /* border: 4px solid black; */
+  display:flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items:center ;
+  font-size: 30px;
+
 }
 
-.App-link {
-  color: #61dafb;
-}
+.flex-container {
+  display:grid;
+place-items: center;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

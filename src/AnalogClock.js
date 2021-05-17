@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect, useContext } from "react";
 import DigitalClock from "./DigitalClock";
 import { TimeContext } from './contextUser';
+
 const AnalogClock = ({ userTimeUpdate }) => {
 
   //analog clocks hours minutes and seconds
@@ -12,28 +13,22 @@ const AnalogClock = ({ userTimeUpdate }) => {
   // user input values in state
   const [cusMin, setCusMin] = useState(null);
   const [cusHour, setCusHour] = useState(null);
-
-  const timeData = userContext(TimeContext);
-
+  const timeData = useContext(TimeContext);
   const secondsStyle = {
-    tranform = `rotate(${analogSeconds * 6}deg)`,
+    tranform: `rotate(${analogSeconds * 6}deg)`,
   };
 
   const minutesStyle = {
-    tranform = `rotate(${(timeData.globalMinute !== null && timeData.globalMinute * 6) || cusMin ||
-    (userTimeUpdate && userTimeUpdate.userSelectedMinute * 6 || analogMinute * 6)
-    }deg)`,
+    tranform: `rotate(${(timeData.globalMinute !== null && timeData.globalMinute * 6) || cusMin ||
+      (userTimeUpdate && userTimeUpdate.userSelectedMinute * 6 || analogMinute * 6)
+      }deg)`,
   };
 
   const hoursStyle = {
-
+    transform: `rotate(${(timeData.globalHour !== null && timeData.globalHour * 30) || cusHour ||
+      (userTimeUpdate && userTimeUpdate.userSelectedHour * 30) || analogHour * 30
+      }deg)`,
   };
-
-
-
-
-
-
 
   const customMinute = (prevMinute) => {
     return (prevMinute === null && Number(userTimeUpdate && userTimeUpdate.userSelectedMinute) + 1) || prevMinute + 1;
@@ -97,28 +92,55 @@ const AnalogClock = ({ userTimeUpdate }) => {
 
   return (
     <>
-      <div className="clocks-container">
-        <div className="analog-clock">
-          <div className="dial seconds" style={secondsStyle}></div>
-          <div className="dial minutes" style={secondsStyle}></div>
-          <div className="dial hours" style={secondsStyle}></div>
-          <span className="number-twelve">12</span>
-          <span className="number-one">1</span>
-          <span className="number-two">2</span>
-          <span className="number-three">3</span>
-          <span className="number-four">4</span>
-          <span className="number-five">5</span>
-          <span className="number-six">6</span>
-          <span className="number-seven">7</span>
-          <span className="number-eight">8</span>
-          <span className="number-nine">9</span>
-          <span className="number-ten">10</span>
-          <span className="number-eleven">11</span>
+      <div className="clock">
+        <div className="analog-clocks">
+          <div className="dial seconds" style={secondsStyle} />
+          <div className="dial minutes" style={minutesStyle} />
+          <div className="dial hours" style={hoursStyle} />
+          <span className="number-twelve">
+            <small style={{ fontSize: "10px" }}>12</small>
+          </span> <span className="number-twelve">
+            <small style={{ fontSize: "10px" }}>12</small>
+          </span>
+          <span className="number-one">
+            <small style={{ fontSize: "10px" }}>1</small>
+          </span>
+          <span className="number-two">
+            <small style={{ fontSize: "10px" }}>2</small>
+          </span>
+          <span className="number-three">
+            <small style={{ fontSize: "10px" }}>3</small>
+          </span>
+          <span className="number-four">
+            <small style={{ fontSize: "10px" }}>4</small>
+          </span>
+
+          <span className="number-five">
+            <small style={{ fontSize: "10px" }}>5</small>
+          </span>
+          <span className="number-six">
+            <small style={{ fontSize: "10px" }}>6</small>
+          </span>
+          <span className="number-seven">
+            <small style={{ fontSize: "10px" }}>7</small>
+          </span>
+          <span className="number-eight">
+            <small style={{ fontSize: "10px" }}>8</small>
+          </span>
+          <span className="number-nine">
+            <small style={{ fontSize: "10px" }}>9</small>
+          </span>
+          <span className={"number-ten"}>
+            <small style={{ fontSize: "10px" }}>10</small>
+          </span>
+          <span className={"number-eleven"}>
+            <small style={{ fontSize: "10px" }}>11</small>
+          </span>
         </div>
+        <div className="digital-clock">
+          <DigitalClock />
+        </ div>
       </div>
-      <div className="digital-clock">
-        <DigitalClock />
-      </ div>
 
     </>
   )
