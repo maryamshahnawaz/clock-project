@@ -1,9 +1,7 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import { UserContext } from "./context";
 
-
 const DigitalClock = ({ timeUpdate, format }) => {
-
   const [cusMin, setCusMin] = useState(null);
   const [cusHour, setCusHour] = useState(0);
 
@@ -13,7 +11,7 @@ const DigitalClock = ({ timeUpdate, format }) => {
   let sec = time.getSeconds();
 
   let formattedHr = format ? hr % format : hr;
-  const ctx = useContext(UserContext);
+  const ctx = React.useContext(UserContext);
 
   const setCustomMinute = (previousMin) =>
     (previousMin === null && Number(timeUpdate && timeUpdate.min) + 1) ||
@@ -31,7 +29,7 @@ const DigitalClock = ({ timeUpdate, format }) => {
         ctx.storeMin(0);
       } else if (sec === 0) {
         setCusMin(setCustomMinute);
-
+        // localStorage.setItem("min", cusMin);
         ctx.storeMin(cusMin);
       } else {
         setCusMin((previousMin) => previousMin);
@@ -43,25 +41,40 @@ const DigitalClock = ({ timeUpdate, format }) => {
     if (timeUpdate && timeUpdate.hr) {
       if (cusHour > 12) {
         setCusHour(1);
+        // localStorage.setItem("hr", 1);
         ctx.storeHour(1);
       } else if (cusMin > 59) {
         setCusHour(setCustomHour);
+        // localStorage.setItem("hr", cusHour);
         ctx.storeHour(cusHour);
       } else {
         setCusHour((previousMin) => previousMin);
+        // localStorage.setItem("hr", cusHour);
         ctx.storeHour(cusHour);
+        //store in the context api
+
+        // localStorage.setItem("hr", cusHour);
       }
     }
+    // eslint-disable-next-line
   }, [sec, min]);
 
+  // let myDate = new Date();
+  //first time it will go to timeupdate
+  //after a 60min we are using cusHour
+  //after a 60sec we are using cusMin
+
   return (
-    <div className="digital-clock">
-      {cusHour ||
-        (formattedHr < 10 ? ("0" + formattedHr).slice(-2) : formattedHr)}
+    <>
+      <div className="digital-clock">
+        {cusHour ||
+          (formattedHr < 10 ? ("0" + formattedHr).slice(-2) : formattedHr)}
         :{cusMin !== null ? cusMin : (timeUpdate && timeUpdate.min) || min}:
-      {sec}
-    </div>
-  )
-}
+        {sec}
+      </div>
+      <div></div>
+    </>
+  );
+};
 
 export default DigitalClock;
