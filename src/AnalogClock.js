@@ -1,30 +1,26 @@
-import * as React from "react";
+import React from "react";
 import { useEffect, useState } from "react";
 import { UserContext } from "./context";
 import DigitalClock from "./DigitalClock";
+
+
 const AnalogClock = ({ timeUpdate, format }) => {
+  //useStates
   const [hours, setHours] = useState("");
   const [minutes, setMinutes] = useState("");
   const [seconds, setSeconds] = useState("");
 
   const ctx = React.useContext(UserContext);
 
-  ////////////////////////////////
-  //user inputed values
   const [cusMin, setCusMin] = useState(null);
   const [cusHour, setCusHour] = useState(null);
 
   let clockInterval;
   useEffect(() => {
-    // eslint-disable-next-line
     clockInterval = setInterval(handleDate, 1000);
   }, [clockInterval]);
-  // eslint-disable-next-line
-  useEffect(() => () => clearInterval(clockInterval), []);
 
-  ////////////////////////////////
-  //   const getHrFromLocal = localStorage.getItem("hr");
-  //   const getMinFromLocal = localStorage.getItem("min");
+  useEffect(() => () => clearInterval(clockInterval), []);
 
   const secondsStyle = {
     transform: `rotate(${seconds * 6}deg)`,
@@ -37,9 +33,7 @@ const AnalogClock = ({ timeUpdate, format }) => {
       }deg)`,
   };
   const hoursStyle = {
-    transform: `rotate(${
-      // eslint-disable-next-line
-      (ctx.cusHours != null && ctx.cusHours * 30) ||
+    transform: `rotate(${(ctx.cusHours != null && ctx.cusHours * 30) ||
       cusHour ||
       (timeUpdate && timeUpdate.hr * 30) ||
       hours * 30
@@ -55,12 +49,12 @@ const AnalogClock = ({ timeUpdate, format }) => {
     previousHour + 1;
 
   const handleDate = () => {
-    const date = new Date(); // date instance- Javascript date
-    date.setHours(date.getHours()); // setHours is builtin : built in to Javascript - only for changing the time: different countries - time
-    let hours = formatTime(date.getHours()); //format is adding 0
+    const date = new Date();
+    date.setHours(date.getHours());
+    let hours = formatTime(date.getHours());
     let minutes = formatTime(date.getMinutes());
     let seconds = formatTime(date.getSeconds());
-    setHours(hours); //setting states
+    setHours(hours);
     setMinutes(minutes);
     setSeconds(seconds);
 
@@ -91,51 +85,63 @@ const AnalogClock = ({ timeUpdate, format }) => {
     return time < 10 ? `0${time}` : time;
   };
   return (
-    <div className={"clocks"}>
-      <div className={"analog-clocks"}>
-        <div className={"dial seconds"} style={secondsStyle} />
-        <div className={"dial minutes"} style={minutesStyle} />
-        <div className={"dial hours"} style={hoursStyle} />
+    <div className="clocks">
+      <div className="analog-clocks">
+        <div className="dial seconds" style={secondsStyle} />
+        <div className="dial minutes" style={minutesStyle} />
+        <div className="dial hours" style={hoursStyle} />
 
         <span className="number-twelve">
-          <small style={{ fontSize: "10px" }}>12</small>
+          {/* <small style={{ fontSize: "10px" }}>12</small> */}
+          <span>12</span>
         </span>
         <span className="number-one">
-          <small style={{ fontSize: "10px" }}>1</small>
+          {/* <small style={{ fontSize: "10px" }}>1</small> */}
+          <span>1</span>
         </span>
         <span className="number-two">
-          <small style={{ fontSize: "10px" }}>2</small>
+          {/* <small style={{ fontSize: "10px" }}>2</small> */}
+          <span>2</span>
         </span>
         <span className="number-three">
-          <small style={{ fontSize: "10px" }}>3</small>
+          {/* <small style={{ fontSize: "10px" }}>3</small> */}
+          <span>3</span>
         </span>
         <span className="number-four">
-          <small style={{ fontSize: "10px" }}>4</small>
+          {/* <small style={{ fontSize: "10px" }}>4</small> */}
+          <span>4</span>
         </span>
         <span className="number-five">
-          <small style={{ fontSize: "10px" }}>5</small>
+          {/* <small style={{ fontSize: "10px" }}>5</small> */}
+          <span>5</span>
         </span>
         <span className="number-six">
-          <small style={{ fontSize: "10px" }}>6</small>
+          {/* <small style={{ fontSize: "10px" }}>6</small> */}
+          <span>6</span>
         </span>
         <span className="number-seven">
-          <small style={{ fontSize: "10px" }}>7</small>
+          {/* <small style={{ fontSize: "10px" }}>7</small> */}
+          <span>7</span>
         </span>
         <span className="number-eight">
-          <small style={{ fontSize: "10px" }}>8</small>
+          {/* <small style={{ fontSize: "10px" }}>8</small> */}
+          <span>8</span>
         </span>
         <span className="number-nine">
-          <small style={{ fontSize: "10px" }}>9</small>
+          {/* <small style={{ fontSize: "10px" }}>9</small> */}
+          <span>9</span>
         </span>
         <span className={"number-ten"}>
-          <small style={{ fontSize: "10px" }}>10</small>
+          {/* <small style={{ fontSize: "10px" }}>10</small> */}
+          <span>10</span>
         </span>
         <span className={"number-eleven"}>
-          <small style={{ fontSize: "10px" }}>11</small>
+          {/* <small style={{ fontSize: "10px" }}>11</small> */}
+          <span>11</span>
         </span>
       </div>
 
-      <div className={"digital-clocks"}>
+      <div className="digital-clocks wrapper">
         <DigitalClock timeUpdate={timeUpdate} format={format} />
       </div>
     </div>

@@ -1,8 +1,69 @@
 .App {
-    font-family: sans-serif;
+  html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figcaption,figure,main{display:block}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,html [type=button],[type=reset],[type=submit]{-webkit-appearance:button}button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}template{display:none}[hidden]{display:none}
+  
+  .clearfix:after {visibility: hidden; display: block; font-size: 0; content: ''; clear: both; height: 0; }
+  
+  html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;}
+  
+  *, *:before, *:after {box-sizing: inherit}
+  
+  .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
+  font-family: sans-serif;
+  fieldset {
+  border:none;
   }
+
+  *{
+    padding:0;
+    margin:0;
+    font-family: 'Poppins', sans-serif;
+  }
+  html {
+    font-size: 62.5%;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  form {
+    display:flex;
+  }
+
+  input {
+    width:50px;
+    padding:5px;
+  }
+
+  button {
+    border: none;
+    background-color: rgb(89, 85, 85);
+    color:#fff;
+    padding:5px;
+    border-radius: 10px;
+  }
+
+  .wrapper {
+    max-width:1280px;
+    width:90%;
+    margin:0 auto;
+  }
+
+  .header-section {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:25vh;
+  }
+
+  .flex-container {
+    max-width:100%;
+    margin-top: 100px;
+  }
+  
   .clocks {
-    width: 150px;
+    // width: 150px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -10,148 +71,127 @@
     border-radius: 5px;
     margin: 5px;
 
+// Digital Clock
     .digital-clocks {
+      display:flex;
+      justify-content: center;
+      align-items:center ;
+      width:350px;
+      height:150px;
       padding: 10px;
-      font-size: 30px;
-      background-color: #fff;
-      border:3px solid black;
+      font-size: 70px;
+      border: solid 13px rgb(237, 235, 235);
+      background-color: rgb(75, 249, 153);
       margin-top: 40px;
+      color:#fff;
     }
+
+// Analog Clock
     .analog-clocks {
-      width: 100px;
-      height: 100px;
+      width: 300px;
+      height: 300px;
       border: solid 1px #000;
       border-radius: 50%;
       position: relative;
-      background: #fff;
+      background: rgb(255, 55, 55);
+      border: solid 13px rgb(237, 235, 235);
+      color:white;
+
       .dial {
         position: absolute;
         left: 50%;
-        width: 50px;
-        height: 50px;
+        bottom: 50%;
+        width: 150px;
+        height: 150px;
         transform-origin: bottom left;
         &.seconds {
-          border-left:solid 1px green;
+          border-left:solid 1px rgb(247, 250, 247);
         }
         &.minutes {
-          border-left:solid 1px #cc0000;
+          border-left:solid 1px #f4eded;
+          width:130px;
+          height:120px;
         }
         &.hours {
           width: 35px;
-          height: 35px;
+          height: 135px;
           top: 15px;
-          border-left:solid 2px #000;
+          border-left:solid 3px rgb(255, 246, 246);
         }
+      }
+
+      .number-twelve {
+      position: absolute;
+      top:0%;
+      left:48%;
+      height: "5px";
+      width: "5px";
+      }
+
+      .number-one {
+        position: absolute;
+        top:9%;
+        right:22%;
+      }
+
+      .number-two {
+        position: absolute;
+        top:25%;
+        right:10%;
+      }
+
+      .number-three {
+        position: absolute;
+        top:45%;
+        right:5%;
+      }
+
+      .number-four {
+        position: absolute;
+        top:65%;
+        right:10%;
+      }
+
+      .number-five {
+        position: absolute;
+        top:76%;
+        right:25%;
+      }
+
+      .number-six {
+        position: absolute;
+        top:80%;
+        right:48%;
+    
+      }.number-seven {
+        position: absolute;
+        top:77%;
+        left:30%;
+      }
+
+      .number-eight {
+        position: absolute;
+        top:63%;
+        left:11%;
+      }
+
+      .number-nine {
+        position: absolute;
+        top:42%;
+        left:7%;
+      }
+
+      .number-ten {
+        position: absolute;
+        top:25%;
+        left:7%;
+      }
+
+      .number-eleven {
+        position: absolute;
+        top:9%;
+        left:23%;
       }
     }
   }
-  
-  
-.number-twelve {
-  position: absolute;
-  top:0%;
-  left:48%;
-  height: "5px";
-  width: "5px";
-}
-
-.number-one {
-  position: absolute;
-  top:9%;
-  right:22%;
-}
-
-.number-two {
-  position: absolute;
-  top:25%;
-  right:10%;
-}
-
-.number-three {
-  position: absolute;
-  top:45%;
-  right:5%;
-}
-
-.number-four {
-  position: absolute;
-  top:65%;
-  right:10%;
-}
-
-.number-five {
-  position: absolute;
-  top:76%;
-  right:25%;
-}
-
-.number-six {
-  position: absolute;
-  top:80%;
-  right:48%;
-  
-}
-
-
-.number-seven {
-  position: absolute;
-  top:77%;
-  left:30%;
-}
-
-.number-eight {
-  position: absolute;
-  top:63%;
-  left:11%;
-}
-
-.number-nine {
-  position: absolute;
-  top:42%;
-  left:7%;
-}
-
-.number-ten {
-  position: absolute;
-  top:25%;
-  left:7%;
-}
-
-.number-eleven {
-  position: absolute;
-  top:9%;
-  left:23%;
-}
-fieldset {
-  border:none;
-}
-form {
-  display:flex;
-}
-
-input {
-  width:50px;
-  padding:5px;
-}
-button {
-  border: none;
-  background-color: transparent;
-
-}
-
-.digital-clock {
-  width:350px;
-  height:150px;
-  /* border: 4px solid black; */
-  display:flex;
-  justify-content: center;
-  align-items:center ;
-  font-size: 30px;
-
-}
-
-.flex-container {
-  display:grid;
-place-items: center;
-
 }

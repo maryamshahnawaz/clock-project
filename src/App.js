@@ -1,10 +1,8 @@
 import { useState } from "react";
 import AnalogClock from "./AnalogClock";
-import Analog from './AnalogClock';
 import "./App.scss";
 
 function App() {
-  // let time = new Date().toLocaleTimeString();
   const [hour, setHour] = useState("");
   const [minute, setMinute] = useState("");
   const [timeUpdate, setTimeUpdate] = useState({
@@ -28,39 +26,39 @@ function App() {
   };
   return (
     <div className="App">
-      <h1>Adjust Time</h1>
-      {/* Created a form for user Input */}
-      <form action="" onSubmit={updateTime}>
-        {/* user input for hour */}
-        <fieldset>
-          <label htmlFor="hour">Select Time:</label>
-          <input
-            type="number"
-            onChange={handleUserHour}
-            placeholder={"Hour"}
-            min={1}
-            max={12}
-            required
-          />
-        </fieldset>
-        {/* user input for hour */}
-        <fieldset>
-          <label htmlFor="min">Min:</label>
-          <input
-            type="number"
-            onChange={handleUserMinute}
-            placeholder={"Min"}
-            min={1}
-            max={59}
-            required
-          />
-        </fieldset>
-        <button type="submit">reset time</button>
-      </form>
-      {/* components for both clocks*/}
+      <div className="header-section">
+        <h1>Synchronized Time</h1>
+        {/* Created a form for user Input */}
+        <form action="" onSubmit={updateTime}>
+          {/* user input for hour */}
+          <fieldset>
+            <label htmlFor="hour">Select Time:</label>
+            <input
+              type="number"
+              onChange={handleUserHour}
+              placeholder={"Hour"}
+              min={1}
+              max={12}
+              required
+            />
+          </fieldset>
+          {/* user input for hour */}
+          <fieldset>
+            <label htmlFor="min">Min:</label>
+            <input
+              type="number"
+              onChange={handleUserMinute}
+              placeholder={"Min"}
+              min={1}
+              max={59}
+              required
+            />
+          </fieldset>
+          <button type="submit">Set Time</button>
+        </form>
+      </div>
 
-      <div className="flex-container">
-        {/* <Clock timeUpdate={timeUpdate} format={12} /> */}
+      <div className="flex-container wrapper">
         <AnalogClock timeUpdate={timeUpdate} format={12} />
       </div>
     </div>
