@@ -1,9 +1,9 @@
-import './App.scss';
-import AnalogClock from "./AnalogClock";
-import { useState } from 'react';
+import { useState } from "react";
+import Analog from './AnalogClock';
+import "./App.scss";
 
 function App() {
-  //hours and minute for user input
+  // let time = new Date().toLocaleTimeString();
   const [hour, setHour] = useState("");
   const [minute, setMinute] = useState("");
   const [timeUpdate, setTimeUpdate] = useState({
@@ -11,66 +11,55 @@ function App() {
     min: null,
   });
 
-  // handleSubmit function declared
-  const handleSubmit = (event) => {
-    //prevent browser from refreshing
-    event.preventDefault();
-    // updating hour and minute state inside setTimeUpdate
+  const handleUserHour = (event) => {
+    setHour(event.target.value);
+  };
+  const handleUserMinute = (event) => {
+    setMinute(event.target.value);
+  };
+
+  const updateTime = (e) => {
+    e.preventDefault();
     setTimeUpdate({
       hr: hour,
       min: minute,
     });
-
-  }
-  console.log(timeUpdate);
-
-  // take Hour input from user and update a Hour state
-  const handleUserHour = (event) => {
-    setHour(event.target.value);
-  }
-  // take Minute input from user and update a Minute state
-  const handleUserMinute = (event) => {
-    setMinute(event.target.value);
-  }
-
+  };
   return (
     <div className="App">
       <h1>Adjust Time</h1>
-      {/* Created a form for taking user input */}
-      <form action="#" className="time-form" onSubmit={handleSubmit}>
-        {/* User input for Hour */}
+      {/* Created a form for user Input */}
+      <form action="" onSubmit={updateTime}>
+        {/* user input for hour */}
         <fieldset>
-          <label htmlFor="hour-box">Hour: </label>
-          <input type="number"
-            id="hour-box"
-            name="hour-box"
-            value={hour}
+          <label htmlFor="hour">Select Time:</label>
+          <input
+            type="number"
             onChange={handleUserHour}
-            placeholder="Hour"
-            min="1"
-            max="12"
+            placeholder={"Hour"}
+            min={1}
+            max={12}
             required
           />
         </fieldset>
-
-        {/* User input for Minute */}
+        {/* user input for hour */}
         <fieldset>
-          <label htmlFor="minute-box">Minute: </label>
-          <input type="number"
-            id="minute-box"
-            name="minute-box"
-            value={minute}
+          <label htmlFor="min">Min:</label>
+          <input
+            type="number"
             onChange={handleUserMinute}
-            placeholder="Minute"
-            min="1"
-            max="59"
+            placeholder={"Min"}
+            min={1}
+            max={59}
             required
           />
         </fieldset>
-        <button type="submit">Adjust Time</button>
+        <button type="submit">reset time</button>
       </form>
-      {/* Analog component */}
+      {/* components for both clocks*/}
+
       <div className="flex-container">
+        {/* <Clock timeUpdate={timeUpdate} format={12} /> */}
         <AnalogClock timeUpdate={timeUpdate} format={12} />
       </div>
     </div>
@@ -78,3 +67,4 @@ function App() {
 }
 
 export default App;
+
