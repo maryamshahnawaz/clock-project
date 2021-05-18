@@ -28,13 +28,7 @@ const AnalogClock = ({ timeUpdate, format }) => {
     return (() => {
       clearInterval(clockInterval)
     })
-  }, []);
-
-
-
-
-
-
+  });
 
 
 

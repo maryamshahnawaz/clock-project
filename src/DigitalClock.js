@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { UserContext } from "./context";
 
 
-const Clock = ({ timeUpdate, format }) => {
+const DigitalClock = ({ timeUpdate, format }) => {
 
   const [cusMin, setCusMin] = useState(null);
   const [cusHour, setCusHour] = useState(0);
@@ -13,7 +13,7 @@ const Clock = ({ timeUpdate, format }) => {
   let sec = time.getSeconds();
 
   let formattedHr = format ? hr % format : hr;
-  const ctx = React.useContext(UserContext);
+  const ctx = useContext(UserContext);
 
   const setCustomMinute = (previousMin) =>
     (previousMin === null && Number(timeUpdate && timeUpdate.min) + 1) ||
@@ -26,13 +26,16 @@ const Clock = ({ timeUpdate, format }) => {
   useEffect(() => {
     if (timeUpdate && timeUpdate.min) {
       if (cusMin > 59) {
-        setCustMinute(0);
+        setCusMin(0);
+        // localStorage.setItem("min", 0);
         ctx.storeMin(0);
       } else if (sec === 0) {
         setCusMin(setCustomMinute);
+
         ctx.storeMin(cusMin);
       } else {
         setCusMin((previousMin) => previousMin);
+        // localStorage.setItem("min", cusMin);
         ctx.storeMin(cusMin);
       }
     }
@@ -42,7 +45,7 @@ const Clock = ({ timeUpdate, format }) => {
         setCusHour(1);
         ctx.storeHour(1);
       } else if (cusMin > 59) {
-        setCustomHour(setCustomHour);
+        setCusHour(setCustomHour);
         ctx.storeHour(cusHour);
       } else {
         setCusHour((previousMin) => previousMin);
@@ -61,4 +64,4 @@ const Clock = ({ timeUpdate, format }) => {
   )
 }
 
-export default DigitalClock
+export default DigitalClock;

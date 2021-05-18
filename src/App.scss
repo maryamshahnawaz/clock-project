@@ -46,38 +46,6 @@
   
 
 
-
-
-.hour-hand {
-  width:6px;
-  height:70px;
-  background-color: black;
-  position: absolute;
-  top:50%;
-  left:50%;
-  z-index: 200;
-  transform-origin: bottom;
-}
-
-.minute-hand {
-  width:4px;
-  height:120px;
-  position: absolute;
-  top:50%;
-  left:50%;
-  background-color: grey;
-  transform-origin: bottom;
-}
-.second-hand {
-  width:1px;
-  height:140px;
-  position: absolute;
-  top:50%;
-  left:50%;
-  background-color: rgb(255, 2, 2);
-  transform-origin: bottom;
-}
-
 .number-twelve {
   position: absolute;
   top:0%;

@@ -20,7 +20,9 @@ function App() {
       hr: hour,
       min: minute,
     });
+
   }
+  console.log(timeUpdate);
 
   // take Hour input from user and update a Hour state
   const handleUserHour = (event) => {
@@ -42,7 +44,7 @@ function App() {
           <input type="number"
             id="hour-box"
             name="hour-box"
-            value={userInputHour}
+            value={hour}
             onChange={handleUserHour}
             placeholder="Hour"
             min="1"
@@ -57,7 +59,7 @@ function App() {
           <input type="number"
             id="minute-box"
             name="minute-box"
-            value={userInputMinute}
+            value={minute}
             onChange={handleUserMinute}
             placeholder="Minute"
             min="1"
