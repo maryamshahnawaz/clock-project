@@ -54,7 +54,7 @@ const DigitalClock = ({ timeUpdate, format }) => {
 
       }
     }
-
+    // eslint-disable-next-line
   }, [sec, min]);
 
 

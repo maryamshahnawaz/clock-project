@@ -14,13 +14,16 @@ const AnalogClock = ({ timeUpdate, format }) => {
 
   const [cusMin, setCusMin] = useState(null);
   const [cusHour, setCusHour] = useState(null);
+  // eslint-disable-next-line
 
-  let clockInterval;
   useEffect(() => {
+    let clockInterval
+    // this.let clockInterval;
     clockInterval = setInterval(handleDate, 1000);
-  }, [clockInterval]);
+    return () => clearInterval(clockInterval)
+    // eslint-disable-next-line
+  }, []);
 
-  useEffect(() => () => clearInterval(clockInterval), []);
 
   const secondsStyle = {
     transform: `rotate(${seconds * 6}deg)`,
