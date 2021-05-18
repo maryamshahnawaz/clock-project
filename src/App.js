@@ -32,7 +32,7 @@ function App() {
         <form action="" onSubmit={updateTime}>
           {/* user input for hour */}
           <fieldset>
-            <label htmlFor="hour">Select Time:</label>
+            <label htmlFor="hour">Hour: </label>
             <input
               type="number"
               onChange={handleUserHour}
@@ -44,7 +44,7 @@ function App() {
           </fieldset>
           {/* user input for hour */}
           <fieldset>
-            <label htmlFor="min">Min:</label>
+            <label htmlFor="min">Min: </label>
             <input
               type="number"
               onChange={handleUserMinute}

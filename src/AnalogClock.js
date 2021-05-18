@@ -5,7 +5,7 @@ import DigitalClock from "./DigitalClock";
 
 
 const AnalogClock = ({ timeUpdate, format }) => {
-  //useStates
+
   const [hours, setHours] = useState("");
   const [minutes, setMinutes] = useState("");
   const [seconds, setSeconds] = useState("");
@@ -92,51 +92,39 @@ const AnalogClock = ({ timeUpdate, format }) => {
         <div className="dial hours" style={hoursStyle} />
 
         <span className="number-twelve">
-          {/* <small style={{ fontSize: "10px" }}>12</small> */}
           <span>12</span>
         </span>
         <span className="number-one">
-          {/* <small style={{ fontSize: "10px" }}>1</small> */}
           <span>1</span>
         </span>
         <span className="number-two">
-          {/* <small style={{ fontSize: "10px" }}>2</small> */}
           <span>2</span>
         </span>
         <span className="number-three">
-          {/* <small style={{ fontSize: "10px" }}>3</small> */}
           <span>3</span>
         </span>
         <span className="number-four">
-          {/* <small style={{ fontSize: "10px" }}>4</small> */}
           <span>4</span>
         </span>
         <span className="number-five">
-          {/* <small style={{ fontSize: "10px" }}>5</small> */}
           <span>5</span>
         </span>
         <span className="number-six">
-          {/* <small style={{ fontSize: "10px" }}>6</small> */}
           <span>6</span>
         </span>
         <span className="number-seven">
-          {/* <small style={{ fontSize: "10px" }}>7</small> */}
           <span>7</span>
         </span>
         <span className="number-eight">
-          {/* <small style={{ fontSize: "10px" }}>8</small> */}
           <span>8</span>
         </span>
         <span className="number-nine">
-          {/* <small style={{ fontSize: "10px" }}>9</small> */}
           <span>9</span>
         </span>
-        <span className={"number-ten"}>
-          {/* <small style={{ fontSize: "10px" }}>10</small> */}
+        <span className="number-ten">
           <span>10</span>
         </span>
-        <span className={"number-eleven"}>
-          {/* <small style={{ fontSize: "10px" }}>11</small> */}
+        <span className="number-eleven">
           <span>11</span>
         </span>
       </div>
