@@ -25,15 +25,15 @@ const DigitalClock = ({ timeUpdate, format }) => {
     if (timeUpdate && timeUpdate.min) {
       if (cusMin > 59) {
         setCusMin(0);
-        // localStorage.setItem("min", 0);
+
         ctx.storeMin(0);
       } else if (sec === 0) {
         setCusMin(setCustomMinute);
-        // localStorage.setItem("min", cusMin);
+
         ctx.storeMin(cusMin);
       } else {
         setCusMin((previousMin) => previousMin);
-        // localStorage.setItem("min", cusMin);
+
         ctx.storeMin(cusMin);
       }
     }
@@ -41,33 +41,27 @@ const DigitalClock = ({ timeUpdate, format }) => {
     if (timeUpdate && timeUpdate.hr) {
       if (cusHour > 12) {
         setCusHour(1);
-        // localStorage.setItem("hr", 1);
+
         ctx.storeHour(1);
       } else if (cusMin > 59) {
         setCusHour(setCustomHour);
-        // localStorage.setItem("hr", cusHour);
+
         ctx.storeHour(cusHour);
       } else {
         setCusHour((previousMin) => previousMin);
-        // localStorage.setItem("hr", cusHour);
-        ctx.storeHour(cusHour);
-        //store in the context api
 
-        // localStorage.setItem("hr", cusHour);
+        ctx.storeHour(cusHour);
+
       }
     }
-    // eslint-disable-next-line
+
   }, [sec, min]);
 
-  // let myDate = new Date();
-  //first time it will go to timeupdate
-  //after a 60min we are using cusHour
-  //after a 60sec we are using cusMin
 
   return (
     <>
       <div className="digital-clock">
-        {cusHour ||
+        {cusHour || (timeUpdate && timeUpdate.hr) ||
           (formattedHr < 10 ? ("0" + formattedHr).slice(-2) : formattedHr)}
         :{cusMin !== null ? cusMin : (timeUpdate && timeUpdate.min) || min}:
         {sec}

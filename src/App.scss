@@ -1,8 +1,7 @@
-
 .App {
     font-family: sans-serif;
   }
-  .clock {
+  .clocks {
     width: 150px;
     text-align: center;
     display: flex;
@@ -14,6 +13,9 @@
     .digital-clocks {
       padding: 10px;
       font-size: 30px;
+      background-color: #fff;
+      border:3px solid black;
+      margin-top: 40px;
     }
     .analog-clocks {
       width: 100px;
@@ -43,7 +45,8 @@
       }
     }
   }
-
+  
+  
 .number-twelve {
   position: absolute;
   top:0%;
@@ -73,18 +76,18 @@
 .number-four {
   position: absolute;
   top:65%;
-  right:8%;
+  right:10%;
 }
 
 .number-five {
   position: absolute;
-  top:84%;
-  right:24%;
+  top:76%;
+  right:25%;
 }
 
 .number-six {
   position: absolute;
-  top:90%;
+  top:80%;
   right:48%;
   
 }
@@ -92,19 +95,19 @@
 
 .number-seven {
   position: absolute;
-  top:83%;
+  top:77%;
   left:30%;
 }
 
 .number-eight {
   position: absolute;
-  top:68%;
+  top:63%;
   left:11%;
 }
 
 .number-nine {
   position: absolute;
-  top:47%;
+  top:42%;
   left:7%;
 }
 
