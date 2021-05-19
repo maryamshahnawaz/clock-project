@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { UserContext } from "./context";
+import { UserContext } from "../../context";
 
 const DigitalClock = ({ timeUpdate, format }) => {
   const [cusMin, setCusMin] = useState(null);

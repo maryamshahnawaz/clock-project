@@ -1,0 +1,463 @@
+.App {
+  font-family: sans-serif;
+}
+
+.App html {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+.App body {
+  margin: 0;
+}
+
+.App article, .App aside, .App footer, .App header, .App nav, .App section {
+  display: block;
+}
+
+.App h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+.App figcaption, .App figure, .App main {
+  display: block;
+}
+
+.App figure {
+  margin: 1em 40px;
+}
+
+.App hr {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+.App pre {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+.App a {
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+
+.App abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+}
+
+.App b, .App strong {
+  font-weight: inherit;
+}
+
+.App b, .App strong {
+  font-weight: bolder;
+}
+
+.App code, .App kbd, .App samp {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+.App dfn {
+  font-style: italic;
+}
+
+.App mark {
+  background-color: #ff0;
+  color: #000;
+}
+
+.App small {
+  font-size: 80%;
+}
+
+.App sub, .App sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+.App sub {
+  bottom: -.25em;
+}
+
+.App sup {
+  top: -.5em;
+}
+
+.App audio, .App video {
+  display: inline-block;
+}
+
+.App audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+.App img {
+  border-style: none;
+}
+
+.App svg:not(:root) {
+  overflow: hidden;
+}
+
+.App button, .App input, .App optgroup, .App select, .App textarea {
+  font-family: sans-serif;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.App button, .App input {
+  overflow: visible;
+}
+
+.App button, .App select {
+  text-transform: none;
+}
+
+.App button, .App html [type=button], .App [type=reset], .App [type=submit] {
+  -webkit-appearance: button;
+}
+
+.App button::-moz-focus-inner, .App [type=button]::-moz-focus-inner, .App [type=reset]::-moz-focus-inner, .App [type=submit]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+.App button:-moz-focusring, .App [type=button]:-moz-focusring, .App [type=reset]:-moz-focusring, .App [type=submit]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+.App fieldset {
+  padding: .35em .75em .625em;
+}
+
+.App legend {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal;
+}
+
+.App progress {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.App textarea {
+  overflow: auto;
+}
+
+.App [type=checkbox], .App [type=radio] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+}
+
+.App [type=number]::-webkit-inner-spin-button, .App [type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+.App [type=search] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+.App [type=search]::-webkit-search-cancel-button, .App [type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+.App ::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+.App details, .App menu {
+  display: block;
+}
+
+.App summary {
+  display: list-item;
+}
+
+.App canvas {
+  display: inline-block;
+}
+
+.App template {
+  display: none;
+}
+
+.App [hidden] {
+  display: none;
+}
+
+.App .clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: '';
+  clear: both;
+  height: 0;
+}
+
+.App html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.App *, .App *:before, .App *:after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+.App .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.App fieldset {
+  border: none;
+}
+
+.App * {
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.App html {
+  font-size: 62.5%;
+}
+
+.App body {
+  font-size: 2rem;
+}
+
+.App h1 {
+  font-size: 2.5rem;
+}
+
+.App form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.App input {
+  width: 50px;
+  padding: 5px;
+}
+
+.App button {
+  border: none;
+  background-color: #595555;
+  color: #fff;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.App button:hover {
+  background-color: #a09898;
+  color: black;
+}
+
+.App .wrapper {
+  max-width: 1280px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.App .header-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 25vh;
+}
+
+.App .flex-container {
+  margin-top: 100px;
+}
+
+.App .clocks {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  align-items: center;
+  border-radius: 5px;
+  margin: 5px;
+  width: 100%;
+}
+
+.App .clocks .digital-clocks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 300px;
+  height: 100px;
+  padding: 10px;
+  font-size: 70px;
+  border: solid 13px #edebeb;
+  background-color: #4bf999;
+  margin-top: 40px;
+  color: #fff;
+}
+
+.App .clocks .analog-clocks {
+  width: 300px;
+  height: 300px;
+  border: solid 1px #000;
+  border-radius: 50%;
+  position: relative;
+  background: #ff3737;
+  border: solid 13px #edebeb;
+  color: white;
+}
+
+.App .clocks .analog-clocks .dial {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  width: 150px;
+  height: 150px;
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left;
+}
+
+.App .clocks .analog-clocks .dial.seconds {
+  border-left: solid 1px #f7faf7;
+}
+
+.App .clocks .analog-clocks .dial.minutes {
+  border-left: solid 1px #f4eded;
+  width: 130px;
+  height: 120px;
+}
+
+.App .clocks .analog-clocks .dial.hours {
+  width: 35px;
+  height: 135px;
+  top: 15px;
+  border-left: solid 3px #fff6f6;
+}
+
+.App .clocks .analog-clocks .number-twelve {
+  position: absolute;
+  top: 0%;
+  left: 48%;
+  height: "5px";
+  width: "5px";
+}
+
+.App .clocks .analog-clocks .number-one {
+  position: absolute;
+  top: 9%;
+  right: 22%;
+}
+
+.App .clocks .analog-clocks .number-two {
+  position: absolute;
+  top: 25%;
+  right: 10%;
+}
+
+.App .clocks .analog-clocks .number-three {
+  position: absolute;
+  top: 45%;
+  right: 5%;
+}
+
+.App .clocks .analog-clocks .number-four {
+  position: absolute;
+  top: 65%;
+  right: 10%;
+}
+
+.App .clocks .analog-clocks .number-five {
+  position: absolute;
+  top: 76%;
+  right: 25%;
+}
+
+.App .clocks .analog-clocks .number-six {
+  position: absolute;
+  top: 80%;
+  right: 48%;
+}
+
+.App .clocks .analog-clocks .number-seven {
+  position: absolute;
+  top: 77%;
+  left: 30%;
+}
+
+.App .clocks .analog-clocks .number-eight {
+  position: absolute;
+  top: 63%;
+  left: 11%;
+}
+
+.App .clocks .analog-clocks .number-nine {
+  position: absolute;
+  top: 42%;
+  left: 7%;
+}
+
+.App .clocks .analog-clocks .number-ten {
+  position: absolute;
+  top: 25%;
+  left: 7%;
+}
+
+.App .clocks .analog-clocks .number-eleven {
+  position: absolute;
+  top: 9%;
+  left: 23%;
+}

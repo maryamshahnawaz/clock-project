@@ -20,4 +20,3 @@ const AppContextWrapper = (props) => {
   );
 };
 export default AppContextWrapper;
-

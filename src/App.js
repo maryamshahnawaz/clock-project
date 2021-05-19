@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AnalogClock from "./AnalogClock";
+import { AnalogClock } from "./components";
 import "./App.scss";
 
 function App() {

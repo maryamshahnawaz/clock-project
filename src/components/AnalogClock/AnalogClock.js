@@ -1,7 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { UserContext } from "./context";
-import DigitalClock from "./DigitalClock";
+import { UserContext } from "../../context";
+import { DigitalClock } from "..";
+import { formatTime } from "../../util";
 
 
 const AnalogClock = ({ timeUpdate, format }) => {
@@ -84,9 +85,7 @@ const AnalogClock = ({ timeUpdate, format }) => {
     }
   };
 
-  const formatTime = (time) => {
-    return time < 10 ? `0${time}` : time;
-  };
+
   return (
     <div className="clocks">
       <div className="analog-clocks">
