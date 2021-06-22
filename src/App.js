@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { AnalogClock } from "./components";
+import { DigitalClock } from "./components";
 import "./App.scss";
 
 function App() {
@@ -54,12 +55,14 @@ function App() {
               required
             />
           </fieldset>
-          <button type="submit">Set Time</button>
+          <input type="Submit" />
         </form>
       </div>
 
       <div className="flex-container wrapper">
         <AnalogClock timeUpdate={timeUpdate} format={12} />
+        <DigitalClock timeUpdate={timeUpdate} format={12} />
+
       </div>
     </div>
   );

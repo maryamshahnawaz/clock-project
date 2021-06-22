@@ -1,5 +1,7 @@
 .App {
   font-family: sans-serif;
+  font-size: 1rem;
+  min-height: 100vh;
 }
 
 .App html {
@@ -253,12 +255,10 @@
   font-size: 62.5%;
 }
 
-.App body {
-  font-size: 2rem;
-}
-
 .App h1 {
   font-size: 2.5rem;
+  margin: 3rem auto;
+  text-shadow: 2px 3px #969393;
 }
 
 .App form {
@@ -268,19 +268,22 @@
 }
 
 .App input {
-  width: 50px;
+  width: 70px;
+  height: 15px;
   padding: 5px;
 }
 
-.App button {
+.App input[type="submit"] {
   border: none;
-  background-color: #595555;
+  background-color: #e80000;
   color: #fff;
-  padding: 5px;
-  border-radius: 10px;
+  margin-top: 5px;
+  padding: 7px 3px;
+  line-height: 7px;
+  border-radius: 3px;
 }
 
-.App button:hover {
+.App input[type="submit"]:hover {
   background-color: #a09898;
   color: black;
 }
@@ -310,27 +313,17 @@
 
 .App .flex-container {
   margin-top: 100px;
-}
-
-.App .clocks {
-  text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  align-items: center;
-  border-radius: 5px;
-  margin: 5px;
-  width: 100%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
-.App .clocks .digital-clocks {
+.App .digital {
+  background: green;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -346,11 +339,11 @@
   font-size: 70px;
   border: solid 13px #edebeb;
   background-color: #4bf999;
-  margin-top: 40px;
+  margin-top: 65px;
   color: #fff;
 }
 
-.App .clocks .analog-clocks {
+.App .analog-clocks {
   width: 300px;
   height: 300px;
   border: solid 1px #000;
@@ -361,7 +354,7 @@
   color: white;
 }
 
-.App .clocks .analog-clocks .dial {
+.App .analog-clocks .dial {
   position: absolute;
   left: 50%;
   bottom: 50%;
@@ -371,24 +364,24 @@
           transform-origin: bottom left;
 }
 
-.App .clocks .analog-clocks .dial.seconds {
-  border-left: solid 1px #f7faf7;
+.App .analog-clocks .dial.seconds {
+  border-left: solid 1px #e9e7e7;
 }
 
-.App .clocks .analog-clocks .dial.minutes {
-  border-left: solid 1px #f4eded;
+.App .analog-clocks .dial.minutes {
+  border-left: solid 1px #fcf8f8;
   width: 130px;
   height: 120px;
 }
 
-.App .clocks .analog-clocks .dial.hours {
-  width: 35px;
+.App .analog-clocks .dial.hours {
+  width: 33px;
   height: 135px;
   top: 15px;
-  border-left: solid 3px #fff6f6;
+  border-left: solid 3px #f9f5f5;
 }
 
-.App .clocks .analog-clocks .number-twelve {
+.App .analog-clocks .number-twelve {
   position: absolute;
   top: 0%;
   left: 48%;
@@ -396,67 +389,67 @@
   width: "5px";
 }
 
-.App .clocks .analog-clocks .number-one {
+.App .analog-clocks .number-one {
   position: absolute;
   top: 9%;
   right: 22%;
 }
 
-.App .clocks .analog-clocks .number-two {
+.App .analog-clocks .number-two {
   position: absolute;
   top: 25%;
   right: 10%;
 }
 
-.App .clocks .analog-clocks .number-three {
+.App .analog-clocks .number-three {
   position: absolute;
   top: 45%;
   right: 5%;
 }
 
-.App .clocks .analog-clocks .number-four {
+.App .analog-clocks .number-four {
   position: absolute;
   top: 65%;
   right: 10%;
 }
 
-.App .clocks .analog-clocks .number-five {
+.App .analog-clocks .number-five {
   position: absolute;
   top: 76%;
   right: 25%;
 }
 
-.App .clocks .analog-clocks .number-six {
+.App .analog-clocks .number-six {
   position: absolute;
   top: 80%;
   right: 48%;
 }
 
-.App .clocks .analog-clocks .number-seven {
+.App .analog-clocks .number-seven {
   position: absolute;
   top: 77%;
   left: 30%;
 }
 
-.App .clocks .analog-clocks .number-eight {
+.App .analog-clocks .number-eight {
   position: absolute;
   top: 63%;
   left: 11%;
 }
 
-.App .clocks .analog-clocks .number-nine {
+.App .analog-clocks .number-nine {
   position: absolute;
   top: 42%;
   left: 7%;
 }
 
-.App .clocks .analog-clocks .number-ten {
+.App .analog-clocks .number-ten {
   position: absolute;
   top: 25%;
   left: 7%;
 }
 
-.App .clocks .analog-clocks .number-eleven {
+.App .analog-clocks .number-eleven {
   position: absolute;
   top: 9%;
   left: 23%;

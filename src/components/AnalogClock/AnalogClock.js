@@ -87,54 +87,52 @@ const AnalogClock = ({ timeUpdate, format }) => {
 
 
   return (
-    <div className="clocks">
-      <div className="analog-clocks">
-        <div className="dial seconds" style={secondsStyle} />
-        <div className="dial minutes" style={minutesStyle} />
-        <div className="dial hours" style={hoursStyle} />
-
-        <span className="number-twelve">
-          <span>12</span>
-        </span>
-        <span className="number-one">
-          <span>1</span>
-        </span>
-        <span className="number-two">
-          <span>2</span>
-        </span>
-        <span className="number-three">
-          <span>3</span>
-        </span>
-        <span className="number-four">
-          <span>4</span>
-        </span>
-        <span className="number-five">
-          <span>5</span>
-        </span>
-        <span className="number-six">
-          <span>6</span>
-        </span>
-        <span className="number-seven">
-          <span>7</span>
-        </span>
-        <span className="number-eight">
-          <span>8</span>
-        </span>
-        <span className="number-nine">
-          <span>9</span>
-        </span>
-        <span className="number-ten">
-          <span>10</span>
-        </span>
-        <span className="number-eleven">
-          <span>11</span>
-        </span>
-      </div>
-
-      <div className="digital-clocks wrapper">
-        <DigitalClock timeUpdate={timeUpdate} format={format} />
-      </div>
+    // <div className="clocks">
+    <div className="analog-clocks">
+      <div className="dial seconds" style={secondsStyle} />
+      <div className="dial minutes" style={minutesStyle} />
+      <div className="dial hours" style={hoursStyle} />
+      <span className="number-twelve">
+        <span>12</span>
+      </span>
+      <span className="number-one">
+        <span>1</span>
+      </span>
+      <span className="number-two">
+        <span>2</span>
+      </span>
+      <span className="number-three">
+        <span>3</span>
+      </span>
+      <span className="number-four">
+        <span>4</span>
+      </span>
+      <span className="number-five">
+        <span>5</span>
+      </span>
+      <span className="number-six">
+        <span>6</span>
+      </span>
+      <span className="number-seven">
+        <span>7</span>
+      </span>
+      <span className="number-eight">
+        <span>8</span>
+      </span>
+      <span className="number-nine">
+        <span>9</span>
+      </span>
+      <span className="number-ten">
+        <span>10</span>
+      </span>
+      <span className="number-eleven">
+        <span>11</span>
+      </span>
     </div>
+    /* <div className="digital-clocks wrapper">
+        <DigitalClock timeUpdate={timeUpdate} format={format} />
+      </div> */
+    // </div>
   )
 };
 

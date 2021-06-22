@@ -13,23 +13,24 @@
   border:none;
   }
 
-  *{
+  font-size: 1rem;
+  min-height: 100vh;
+  
+  * {
     padding:0;
     margin:0;
     font-family: 'Poppins', sans-serif;
-
-  }
+    }
 
   html {
     font-size: 62.5%;
   }
 
-  body {
-    font-size: 2rem;
-  }
 
   h1 {
     font-size: 2.5rem;
+    margin: 3rem auto;
+    text-shadow: 2px 3px rgb(150, 147, 147);
   }
 
   form {
@@ -37,16 +38,19 @@
   }
 
   input {
-    width:50px;
+    width:70px;
+    height:15px;
     padding:5px;
   }
 
-  button {
+  input[type="submit"] {
     border: none;
-    background-color: rgb(89, 85, 85);
+    background-color: rgb(232, 0, 0);
     color:#fff;
-    padding:5px;
-    border-radius: 10px;
+    margin-top: 5px;
+    padding:7px 3px;
+    line-height: 7px;
+    border-radius: 3px;
     &:hover {
       background-color: rgb(160, 152, 152); 
       color:black;
@@ -69,21 +73,16 @@
 
   .flex-container {
     margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
   }
   
-  .clocks {
-    text-align: center;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    align-items: center;
-    border-radius: 5px;
-    margin: 5px;
-    width:100%;
+  // .clocks {
 
 // Digital Clock
-    .digital-clocks {
+    .digital {
+      background: green;
       display:flex;
       justify-content: center;
       align-items:center;
@@ -93,7 +92,7 @@
       font-size: 70px;
       border: solid 13px rgb(237, 235, 235);
       background-color: rgb(75, 249, 153);
-      margin-top: 40px;
+      margin-top: 65px;
       color:#fff;
     }
 
@@ -116,18 +115,18 @@
         height: 150px;
         transform-origin: bottom left;
         &.seconds {
-          border-left:solid 1px rgb(247, 250, 247);
+          border-left:solid 1px rgb(233, 231, 231);
         }
         &.minutes {
-          border-left:solid 1px #f4eded;
+          border-left:solid 1px #fcf8f8;
           width:130px;
           height:120px;
         }
         &.hours {
-          width: 35px;
+          width: 33px;
           height: 135px;
           top: 15px;
-          border-left:solid 3px rgb(255, 246, 246);
+          border-left:solid 3px rgb(249, 245, 245);
         }
       }
 
@@ -205,4 +204,3 @@
       }
     }
   }
-}

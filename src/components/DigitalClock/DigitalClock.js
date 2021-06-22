@@ -60,13 +60,14 @@ const DigitalClock = ({ timeUpdate, format }) => {
 
   return (
     <>
-      <div className="digital-clock">
+      {/* <div className="clocks"> */}
+      <div className="digital">
         {cusHour || (timeUpdate && timeUpdate.hr) ||
           (formattedHr < 10 ? ("0" + formattedHr).slice(-2) : formattedHr)}
         :{cusMin !== null ? cusMin : (timeUpdate && timeUpdate.min) || min}:
         {sec}
       </div>
-      <div></div>
+      {/* </div> */}
     </>
   );
 };
