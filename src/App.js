@@ -55,7 +55,7 @@ function App() {
               required
             />
           </fieldset>
-          <input type="Submit" />
+          <input type="submit" />
         </form>
       </div>
 
