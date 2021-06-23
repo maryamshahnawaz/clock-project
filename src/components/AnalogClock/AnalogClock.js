@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { UserContext } from "../../context";
-import { DigitalClock } from "..";
 import { formatTime } from "../../util";
 
 
